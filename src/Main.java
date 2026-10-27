@@ -10,7 +10,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Path filePath = Path.of("user_notes.txt");
 
-        // 1. Print what the user saved last time
         try {
             if (Files.exists(filePath)) {
                 String previousText = Files.readString(filePath);
@@ -26,7 +25,6 @@ public class Main {
             System.out.println("Could not read your previous writing.");
         }
 
-        // 2. Let the user write something new
         System.out.println("\nWrite something new:");
         System.out.println("(Type SAVE on a new line when finished)");
 
@@ -43,7 +41,6 @@ public class Main {
                     .append(System.lineSeparator());
         }
 
-        // 3. Save the new writing for next time
         try {
             Files.writeString(filePath, userText.toString());
             System.out.println("Your writing has been saved!");
